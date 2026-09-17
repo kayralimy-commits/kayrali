@@ -1,58 +1,42 @@
 # Kayrali
 
-Marketing website for Kayrali, a boutique offering affordable, premium
-ready-made sarees, lehengas, and curated ethnic wear (including modest,
-Muslim-friendly styles).
+Marketing site for Kayrali, a saree and lehenga rental boutique in Kelana Jaya,
+Petaling Jaya. Live at https://www.kayrali.com.
 
-This is a static site — plain HTML/CSS/JS, no build step required.
+Static site, no build step. Deployed on Cloudflare Workers (static assets) from
+`main`; every push to `main` goes live.
 
 ## Structure
 
 ```
-index.html        Single-page site (Home, About, Collections, Why Kayrali, Contact)
-css/style.css      Styles (brand colors pulled from the logos)
-js/script.js       Mobile nav toggle, footer year, contact form handling
-images/            Logos + generated favicons
+index.html        Single landing page, JSON-LD (ClothingStore, FAQPage), OG tags
+css/style.css     All styles. Tokens at the top (rust, gold, cream on rust-black)
+js/main.js        Loader, smooth scroll (Lenis), scroll motion (GSAP), cursor, nav
+js/silk.js        WebGL silk shader behind the hero (Three.js, ES module)
+images/           Logos, favicons, kolam.svg (the motif), og-cover.png
+robots.txt        Allows all, points to sitemap.xml
+sitemap.xml       One URL
+wrangler.jsonc    Cloudflare Workers assets config
 ```
 
-## Local preview
+Libraries are loaded from CDNs with pinned versions (GSAP 3.12.5 and
+ScrollTrigger from cdnjs, Lenis 1.1.18 and Three 0.170.0 from jsdelivr).
+If any of them fail to load the page still renders and scrolls normally.
 
-Just open `index.html` in a browser, or serve the folder locally:
+## Local preview
 
 ```
 python3 -m http.server 8000
 ```
 
-Then visit http://localhost:8000
+Then open http://localhost:8000. The shader needs a real origin, so open it
+via the server rather than as a file.
 
-## Push to GitHub
+## Editing content
 
-```
-git init
-git add .
-git commit -m "Initial Kayrali website"
-git branch -M main
-git remote add origin <your-github-repo-url>
-git push -u origin main
-```
-
-## Deploy on Cloudflare Pages
-
-1. Go to the Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Select this GitHub repo.
-3. Build settings:
-   - **Framework preset:** None
-   - **Build command:** (leave empty)
-   - **Build output directory:** `/`
-4. Deploy. Cloudflare will auto-redeploy on every push to `main`.
-
-## Things to fill in before launch
-
-- Replace the placeholder store address, phone number, and email in the
-  **Contact** section (`index.html`).
-- Replace the `#` social links (Instagram / Facebook / WhatsApp) with real URLs.
-- The contact form is currently static (no backend). Wire it up to a service
-  like [Formspree](https://formspree.io) or a Cloudflare Pages Function
-  before relying on it to receive messages.
-- Swap the colored placeholder blocks in the **Collections** section for
-  real product/store photography when available.
+- Copy, collection cards, FAQ, address and hours are all in `index.html`.
+  The FAQ answers are duplicated in the JSON-LD block at the top; keep both in sync.
+- WhatsApp number and prefilled messages are in the `wa.me` links.
+- To swap the collection swatches for real photos, replace each `.swatch`
+  div with an `<img>` of the same aspect ratio (3:4).
+- `prefers-reduced-motion` turns off the loader, shader, smooth scroll and cursor.

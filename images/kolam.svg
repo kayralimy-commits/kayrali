@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Kolam knot: four outward teardrops, a ring of four loops, one centre loop -->
+  <g class="kolam-outer">
+    <path pathLength="1" d="M100 66 C 88 54, 88 36, 100 24 C 112 36, 112 54, 100 66 Z"/>
+    <path pathLength="1" d="M134 100 C 146 88, 164 88, 176 100 C 164 112, 146 112, 134 100 Z"/>
+    <path pathLength="1" d="M100 134 C 112 146, 112 164, 100 176 C 88 164, 88 146, 100 134 Z"/>
+    <path pathLength="1" d="M66 100 C 54 112, 36 112, 24 100 C 36 88, 54 88, 66 100 Z"/>
+  </g>
+  <g class="kolam-ring">
+    <path pathLength="1" d="M100 66 C 112 66, 134 88, 134 100 C 134 112, 112 134, 100 134 C 88 134, 66 112, 66 100 C 66 88, 88 66, 100 66 Z"/>
+    <path pathLength="1" d="M76 52 C 86 42, 100 42, 100 66 C 76 66, 66 62, 76 52 Z"/>
+    <path pathLength="1" d="M124 52 C 114 42, 100 42, 100 66 C 124 66, 134 62, 124 52 Z"/>
+    <path pathLength="1" d="M148 76 C 158 86, 158 100, 134 100 C 134 76, 138 66, 148 76 Z"/>
+    <path pathLength="1" d="M148 124 C 158 114, 158 100, 134 100 C 134 124, 138 134, 148 124 Z"/>
+    <path pathLength="1" d="M124 148 C 114 158, 100 158, 100 134 C 124 134, 134 138, 124 148 Z"/>
+    <path pathLength="1" d="M76 148 C 86 158, 100 158, 100 134 C 76 134, 66 138, 76 148 Z"/>
+    <path pathLength="1" d="M52 124 C 42 114, 42 100, 66 100 C 66 124, 62 134, 52 124 Z"/>
+    <path pathLength="1" d="M52 76 C 42 86, 42 100, 66 100 C 66 76, 62 66, 52 76 Z"/>
+  </g>
+  <g class="kolam-dots" fill="currentColor" stroke="none">
+    <circle cx="100" cy="42" r="3.5"/>
+    <circle cx="158" cy="100" r="3.5"/>
+    <circle cx="100" cy="158" r="3.5"/>
+    <circle cx="42" cy="100" r="3.5"/>
+    <circle cx="100" cy="100" r="4"/>
+  </g>
+</svg>

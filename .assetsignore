@@ -1,0 +1,15 @@
+# What the Worker must NOT serve. wrangler uploads the whole directory named in
+# wrangler.jsonc `assets.directory` — which is this repo's root — including
+# files git does not track. Anything not listed here is world-readable at
+# https://kayrali.com/<path> on the next deploy. Deny the repo's plumbing;
+# the site is index.html, css/, js/ and the images it references.
+.git
+.gitignore
+.assetsignore
+.claude
+.DS_Store
+System
+node_modules
+wrangler.jsonc
+README.md
+*.pdf
